@@ -8,7 +8,7 @@ namespace DM
 {
     public class EntitySystem : SimulationSystem
     {
-        private GameObject playerPrefab;
+        private GameObject player;
         private Dictionary<EnemyType, GameObject> enemyPrefabs;
         private List<Enemy> enemyList;
 
@@ -28,7 +28,7 @@ namespace DM
                 [EnemyType.Boss] = Resources.Load<GameObject>("Prefabs/Pref_Pharao"),
             };
 
-            playerPrefab = Resources.Load<GameObject>("Prefabs/Pref_Player");
+            player = GameObject.Find("User");
         }
 
         /// <summary>
@@ -68,13 +68,14 @@ namespace DM
                     switch (tileChar)
                     {
                         case 'P': // Player
-                            Object.Instantiate(playerPrefab, tilePosition, rotation);
+                            player.transform.position = tilePosition;
+                            player.transform.rotation = rotation;
                             break;
                         case 'E': // Enemy
-                            Object.Instantiate(enemyPrefabs[EnemyType.Normal], tilePosition, rotation);
+                            SpawnEnemy(EnemyType.Normal, tilePosition, rotation);
                             break;
                         case 'B': // Boss
-                            Object.Instantiate(enemyPrefabs[EnemyType.Boss], tilePosition, rotation);
+                            SpawnEnemy(EnemyType.Boss, tilePosition, rotation);
                             break;
                         // case 'G': // Goal
                         //     GameObject goalObject = InstantiatePrefab(goalPrefab, tilePosition, rotation);
@@ -100,13 +101,15 @@ namespace DM
             SimulationManager.OnTick += Tick;
         }
 
-        private void SpawnEnemy(EnemyType type, int2 position)
+        private void SpawnEnemy(EnemyType type, Vector3 position, Quaternion rotation)
         {
+            Object.Instantiate(enemyPrefabs[type], position, rotation);
+
             var newEnemy = new Enemy
             {
                 type = type,
-                position = position,
-                direction = LOMovement.GetDirection(position.x, position.y, MapInfo.center.x, MapInfo.center.y)
+                position = new int2((int)position.x, (int)position.y),
+                direction = LOMovement.GetDirection(rotation)
             };
             enemyList.Add(newEnemy);
         }

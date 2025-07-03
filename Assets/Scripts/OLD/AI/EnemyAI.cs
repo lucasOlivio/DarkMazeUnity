@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void Start()
     {
-        GameManager.Instance.RegisterEnemy(this);
+        //GameManager.Instance.RegisterEnemy(this);
     }
 
     public void SetTarget(GridBasedMovement target)

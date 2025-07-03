@@ -26,6 +26,14 @@ namespace DM
             return position;
         }
 
+        public static float QuaternionToYRotation(Quaternion rotation)
+        {
+            float yRotation = rotation.eulerAngles.y;
+
+            // Normalize to [0, 360)
+            return (yRotation % 360 + 360) % 360;
+        }
+
         public static Direction GetDirection(int ax, int ay, int bx, int by)
         {
             int dx = bx - ax;
@@ -46,6 +54,34 @@ namespace DM
 
             // Point A == Point B
             return Direction.EE;
+        }
+
+        public static Direction GetDirection(float rotation)
+        {
+            int rounded = Mathf.RoundToInt(rotation) % 360;
+            rounded = (rounded + 360) % 360;
+
+            return rounded switch
+            {
+                0 => Direction.NN,
+                45 => Direction.NE,
+                90 => Direction.EE,
+                135 => Direction.SE,
+                180 => Direction.SS,
+                225 => Direction.SW,
+                270 => Direction.WW,
+                315 => Direction.NW,
+                _ => Direction.NN // Default or error case
+            };
+        }
+
+        public static Direction GetDirection(Quaternion rotation)
+        {
+            float yRotation = QuaternionToYRotation(rotation);
+
+            int rounded = Mathf.RoundToInt(yRotation / 45f) * 45 % 360;
+
+            return GetDirection(rounded);
         }
 
         public static int2 GetMovement(Direction direction)

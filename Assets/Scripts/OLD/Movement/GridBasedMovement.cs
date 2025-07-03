@@ -12,7 +12,7 @@ public class GridBasedMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movePoint.parent = null;
+        // movePoint.parent = null;
     }
 
     /// <summary>
@@ -69,6 +69,6 @@ public class GridBasedMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+        // transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
     }
 }

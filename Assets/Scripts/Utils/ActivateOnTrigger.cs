@@ -1,22 +1,25 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
-public class ActivateOnTrigger : MonoBehaviour
+namespace DM
 {
-    public MonoBehaviour scriptToActivate;
-    public string targetTag = "Player";
-
-    private void Start()
+    [RequireComponent(typeof(Collider2D))]
+    public class ActivateOnTrigger : MonoBehaviour
     {
-        if (scriptToActivate != null)
-            scriptToActivate.enabled = false;
-    }
+        public MonoBehaviour scriptToActivate;
+        public string targetTag = "Player";
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag(targetTag) && scriptToActivate != null)
+        private void Start()
         {
-            scriptToActivate.enabled = true;
+            if (scriptToActivate != null)
+                scriptToActivate.enabled = false;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag(targetTag) && scriptToActivate != null)
+            {
+                scriptToActivate.enabled = true;
+            }
         }
     }
 }

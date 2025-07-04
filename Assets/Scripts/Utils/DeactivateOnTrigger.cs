@@ -1,22 +1,25 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
-public class DeactivateOnTrigger : MonoBehaviour
+namespace DM
 {
-    public MonoBehaviour scriptToDeactivate;
-    public string targetTag = "Player";
-
-    private void Start()
+    [RequireComponent(typeof(Collider2D))]
+    public class DeactivateOnTrigger : MonoBehaviour
     {
-        if (scriptToDeactivate != null)
-            scriptToDeactivate.enabled = false;
-    }
+        public MonoBehaviour scriptToDeactivate;
+        public string targetTag = "Player";
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag(targetTag) && scriptToDeactivate != null)
+        private void Start()
         {
-            scriptToDeactivate.enabled = false;
+            if (scriptToDeactivate != null)
+                scriptToDeactivate.enabled = false;
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag(targetTag) && scriptToDeactivate != null)
+            {
+                scriptToDeactivate.enabled = false;
+            }
         }
     }
 }

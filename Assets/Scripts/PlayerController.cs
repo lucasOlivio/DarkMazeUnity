@@ -14,8 +14,7 @@ namespace DM
             GameManager.Instance.RegisterPlayer(gridBased);
         }
 
-        void Update()
-        {
+        void FixedUpdate() {
             if (!GameManager.Instance.IsPlaying()) return;
 
             if (Input.GetKey(KeyCode.W)) gridBased.ChangeMovePoint(Movement.Direction.North); // Up Arrow or 'W'

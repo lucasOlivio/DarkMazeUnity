@@ -40,7 +40,6 @@ namespace DM
 
         void Update()
         {
-            nodeSystem.DebugNodesConnections();
         }
     }
 }

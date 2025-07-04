@@ -8,7 +8,7 @@ namespace DM
     {
         public GridBasedMovement movement;
 
-        void Update()
+        void FixedUpdate()
         {
             if (target == null) return;
 

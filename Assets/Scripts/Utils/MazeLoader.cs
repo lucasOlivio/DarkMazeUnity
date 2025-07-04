@@ -114,7 +114,7 @@ namespace DM
                     switch (tileChar)
                     {
                         case 'P': // Player
-                            InstantiatePrefab(playerPrefab, tilePosition, rotation);
+                            InstantiatePrefab(playerPrefab, tilePosition, rotation, GameObjectsInfo.playerName);
                             break;
                         case 'E': // Enemy
                             InstantiatePrefab(enemyPrefab, tilePosition, rotation);
@@ -146,11 +146,17 @@ namespace DM
             return multiTiles[Random.Range(0, multiTiles.Length)];
         }
 
-        private GameObject InstantiatePrefab(GameObject prefab, Vector3Int position, Quaternion rotation)
+        private GameObject InstantiatePrefab(GameObject prefab, Vector3Int position, Quaternion rotation, string name = "")
         {
             if (prefab == null) return null;
             Vector3 worldPos = groundTilemap.GetCellCenterWorld(position);
-            return GameObject.Instantiate(prefab, worldPos, rotation);
+            GameObject newObject = GameObject.Instantiate(prefab, worldPos, rotation);
+
+            if (name != "")
+            {
+                newObject.name = name;
+            }
+            return newObject;
         }
     }
 }

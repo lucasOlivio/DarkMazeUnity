@@ -8,6 +8,10 @@ TagManager:
   - Mummy
   - Pharao
   - Enemy
+  - MazeExit
+  - MazeDoor
+  - MazeWin
+  - MazeGoal
   layers:
   - Default
   - TransparentFX

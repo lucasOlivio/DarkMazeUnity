@@ -9,14 +9,14 @@ namespace DM
 
         void Start()
         {
-            player = GameObject.Find(GameObjectsInfo.playerName)?.GetComponent<Transform>();
+            player = GameObject.FindGameObjectWithTag(GameObjectsInfo.playerTag)?.GetComponent<Transform>();
         }
 
         void Update()
         {
             if (!player)
             {
-                player = GameObject.Find(GameObjectsInfo.playerName)?.GetComponent<Transform>();
+                player = GameObject.FindGameObjectWithTag(GameObjectsInfo.playerTag)?.GetComponent<Transform>();
                 return;
             }
 

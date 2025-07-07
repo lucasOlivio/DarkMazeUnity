@@ -55,6 +55,15 @@ namespace DM
             }
         }
 
+        public void RegisterPlayer(GridBasedMovement player)
+        {
+            this.player = player;
+            foreach (var enemy in enemies)
+            {
+                enemy.SetTarget(player);
+            }
+        }
+
         public void RegisterExit(GameObject exitObject)
         {
             exit = exitObject;
@@ -88,15 +97,6 @@ namespace DM
             if (door != null)
             {
                 goal.objectsToDeactivate.Add(door);
-            }
-        }
-
-        public void RegisterPlayer(GridBasedMovement player)
-        {
-            this.player = player;
-            foreach (var enemy in enemies)
-            {
-                enemy.SetTarget(player);
             }
         }
     }

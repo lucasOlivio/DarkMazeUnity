@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 1345975686096553647}
   m_Layer: 0
   m_Name: Pref_Pharao
-  m_TagString: Pharao
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,7 +332,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 1345975686096553647}
-  target: {fileID: 0}
 --- !u!114 &1345975686096553647
 MonoBehaviour:
   m_ObjectHideFlags: 0

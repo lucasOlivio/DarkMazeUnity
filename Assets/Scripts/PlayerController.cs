@@ -7,7 +7,6 @@ namespace DM
     public class PlayerController : MonoBehaviour
     {
         public GridBasedMovement gridBased;
-        public string enemyTag = "Enemy";
 
         void Start()
         {
@@ -25,7 +24,7 @@ namespace DM
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag(enemyTag))
+            if (other.CompareTag(GameObjectsInfo.enemyTag))
             {
                 GameManager.Instance.SetGameOver();
             }

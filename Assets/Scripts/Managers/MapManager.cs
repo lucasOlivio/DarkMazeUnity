@@ -6,6 +6,8 @@ namespace DM
 {
     public class MapManager : MonoBehaviour
     {
+        public string mazeName;
+
         public static MapManager Instance { get; private set; }
 
         public MazeSystem mazeSystem;
@@ -29,8 +31,11 @@ namespace DM
             mazeSystem = new MazeSystem();
             mazeSystem.Init();
 
-            string mazeName = "DEMO.txt";
-            mazeSystem.LoadMazeFromFile(mazeName);
+            // If maze name not set then the maze must be created manually on the editor
+            if (mazeName != null && mazeName != "")
+            {
+                mazeSystem.LoadMazeFromFile(mazeName);
+            }
 
             nodeSystem = new NodeSystem();
             nodeSystem.Init();

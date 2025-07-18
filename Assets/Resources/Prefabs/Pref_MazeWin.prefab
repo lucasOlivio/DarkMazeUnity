@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6342731031411724251, guid: 575b57d7795d54b42bc6f092708fdea5, type: 3}
+      propertyPath: m_TagString
+      value: MazeWin
+      objectReference: {fileID: 0}
     - target: {fileID: 8032266613883223916, guid: 575b57d7795d54b42bc6f092708fdea5, type: 3}
       propertyPath: m_Radius
       value: 0.25

@@ -61,10 +61,8 @@ namespace DM
             {
                 movePoint.position += movement;
                 // Make the object face the movement direction
-                if (movement != Vector3.zero)
-                {
-                    transform.right = movement; // Rotates the sprite in the direction of movement
-                }
+                float angle = Movement.DirectionToRotation(direction);
+                transform.rotation = Quaternion.Euler(0, 0, angle);
             }
         }
 

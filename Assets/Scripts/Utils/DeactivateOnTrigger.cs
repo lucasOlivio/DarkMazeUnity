@@ -5,6 +5,7 @@ namespace DM
     [RequireComponent(typeof(Collider2D))]
     public class DeactivateOnTrigger : MonoBehaviour
     {
+        public Animator anim;
         public MonoBehaviour scriptToDeactivate;
         public string targetTag = "Player";
 
@@ -19,6 +20,7 @@ namespace DM
             if (other.CompareTag(targetTag) && scriptToDeactivate != null)
             {
                 scriptToDeactivate.enabled = false;
+                anim.SetBool("IsWalking", false);
             }
         }
     }

@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ce5f45700748c4c8d0e682558c0f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 2951723167151403061}
   scriptToDeactivate: {fileID: 1926284009089489507}
   targetTag: Player
 --- !u!1 &7129075623728556418
@@ -350,7 +351,6 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 64
-  anim: {fileID: 2951723167151403061}
 --- !u!1 &8419456765910316682
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,5 +431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e104c9329a6873b4a8c64da5298df5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 2951723167151403061}
   scriptToActivate: {fileID: 1926284009089489507}
   targetTag: Player

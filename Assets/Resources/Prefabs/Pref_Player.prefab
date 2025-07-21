@@ -81,7 +81,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridBased: {fileID: 37049051563615817}
-  enemyTag: Enemy
 --- !u!114 &37049051563615817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +98,6 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 64
-  anim: {fileID: 893258365924422751}
 --- !u!58 &7808573193051100910
 CircleCollider2D:
   m_ObjectHideFlags: 0

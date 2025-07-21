@@ -206,7 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e104c9329a6873b4a8c64da5298df5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 2951723167151403061}
   scriptToActivate: {fileID: 5161722277515096831}
+  targetScriptToActivate: {fileID: 3592247108156210667, guid: 3598ae894a7b3744f9ee92a6aada70c5, type: 3}
   targetTag: Player
 --- !u!1 &7129075623728556418
 GameObject:
@@ -349,4 +351,3 @@ MonoBehaviour:
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 64
-  anim: {fileID: 2951723167151403061}

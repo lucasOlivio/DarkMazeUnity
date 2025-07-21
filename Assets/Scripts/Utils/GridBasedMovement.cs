@@ -9,7 +9,7 @@ namespace DM
         public float moveSpeed = 4f;
         public Transform movePoint;
         public LayerMask obstacleLayers;
-        public Animator anim;
+        public bool canWalk = true;
 
         // Start is called before the first frame update
         void Start()
@@ -23,6 +23,9 @@ namespace DM
         /// <param name="movement">The movement vector to apply to the current position.</param>
         public bool TestMovePoint(Vector3 movement)
         {
+            if (!canWalk)
+                return false;
+                
             if (!GameManager.Instance.IsPlaying())
                 return false;
 

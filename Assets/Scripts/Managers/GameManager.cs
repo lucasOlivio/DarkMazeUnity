@@ -10,6 +10,7 @@ namespace DM
         public static GameManager Instance { get; private set; }
         public GameState gameState;
         public GameState.State initialState;
+        public GameObject pauseMenu;
 
         private GridBasedMovement player;
         private List<EnemyAI> enemies = new List<EnemyAI>();
@@ -26,7 +27,6 @@ namespace DM
             }
 
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
 
         void Start()
@@ -34,14 +34,22 @@ namespace DM
             gameState = new GameState(initialState);
         }
 
-        public void SetMainMenu() => gameState.ChangeState(GameState.State.MainMenu);
-        public void SetPlaying() => gameState.ChangeState(GameState.State.Playing);
-        public void SetPaused() => gameState.ChangeState(GameState.State.Paused);
+        public void SetPlaying()
+        {
+            gameState.ChangeState(GameState.State.Playing);
+            pauseMenu?.SetActive(false);
+        }
+
+        public void SetPaused()
+        {
+            gameState.ChangeState(GameState.State.Paused);
+            pauseMenu?.SetActive(true);
+        }
+
         public void SetGameWin() => gameState.ChangeState(GameState.State.GameWin);
         public void SetGameOver() => gameState.ChangeState(GameState.State.GameOver);
 
         public bool IsPlaying() => gameState.IsPlaying();
-        public bool IsMainMenu() => gameState.IsMainMenu();
         public bool IsPaused() => gameState.IsPaused();
         public bool IsGameWin() => gameState.IsGameWin();
         public bool IsGameOver() => gameState.IsGameOver();

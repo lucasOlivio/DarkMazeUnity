@@ -13,13 +13,30 @@ namespace DM
             GameManager.Instance.RegisterPlayer(gridBased);
         }
 
-        void FixedUpdate() {
+        void Pause()
+        {
+            if (GameManager.Instance.IsPaused())
+            {
+                GameManager.Instance.SetPlaying();
+                return;
+            }
+
+            GameManager.Instance.SetPaused();
+        }
+
+        void Update()
+        {
+            if (Input.GetKeyUp(KeyCode.P)) Pause();
+        }
+
+        void FixedUpdate()
+        {
             if (!GameManager.Instance.IsPlaying()) return;
 
-            if (Input.GetKey(KeyCode.W)) gridBased.ChangeMovePoint(Movement.Direction.North); // Up Arrow or 'W'
-            if (Input.GetKey(KeyCode.D)) gridBased.ChangeMovePoint(Movement.Direction.East);  // Right Arrow or 'D'
-            if (Input.GetKey(KeyCode.S)) gridBased.ChangeMovePoint(Movement.Direction.South); // Down Arrow or 'S'
-            if (Input.GetKey(KeyCode.A)) gridBased.ChangeMovePoint(Movement.Direction.West);  // Left Arrow or 'A'
+            if (Input.GetKey(KeyCode.W)) gridBased.ChangeMovePoint(Movement.Direction.North); // Up
+            if (Input.GetKey(KeyCode.D)) gridBased.ChangeMovePoint(Movement.Direction.East);  // Right
+            if (Input.GetKey(KeyCode.S)) gridBased.ChangeMovePoint(Movement.Direction.South); // Down
+            if (Input.GetKey(KeyCode.A)) gridBased.ChangeMovePoint(Movement.Direction.West);  // Left
         }
 
         private void OnTriggerEnter2D(Collider2D other)

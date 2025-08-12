@@ -22,7 +22,6 @@ namespace DM
             }
 
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
 
 

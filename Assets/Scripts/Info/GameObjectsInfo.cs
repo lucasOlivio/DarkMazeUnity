@@ -2,6 +2,7 @@ namespace DM
 {
     public static class GameObjectsInfo
     {
+        public static readonly string pausedMenuTag = "PausedMenu";
         public static readonly string playerTag = "Player";
         public static readonly string exitTag = "MazeExit";
         public static readonly string doorTag = "MazeDoor";

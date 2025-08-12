@@ -12,6 +12,7 @@ TagManager:
   - MazeDoor
   - MazeWin
   - MazeGoal
+  - PausedMenu
   layers:
   - Default
   - TransparentFX

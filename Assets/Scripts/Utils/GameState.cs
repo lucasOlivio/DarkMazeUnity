@@ -8,7 +8,6 @@ namespace DM
     {
         public enum State
         {
-            MainMenu,
             Playing,
             Paused,
             GameWin,
@@ -28,7 +27,6 @@ namespace DM
         }
 
         public bool IsPlaying() => currentState == State.Playing;
-        public bool IsMainMenu() => currentState == State.MainMenu;
         public bool IsPaused() => currentState == State.Paused;
         public bool IsGameWin() => currentState == State.GameWin;
         public bool IsGameOver() => currentState == State.GameOver;
